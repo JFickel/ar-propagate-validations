@@ -1,0 +1,39 @@
+<h1>Create an Event</h1>
+<script type="text/javascript" src="/js/event_new.js"></script>
+
+<form action="/events/create" method="post">
+
+  <input class="title" type="text" name="events[title]" placeholder="Title" value="<%= @event[:title] %>">
+  <span class="errors">
+  <% if @event.errors and @event.errors.messages[:title] %>
+    <%= @event.errors.messages[:title].join(', ') %>
+  <% end %>
+  </span>
+  <br>
+  
+  <input class="organizer_name" type="text" name="events[organizer_name]" placeholder="Name" value="<%= @event[:organizer_name] %>">
+  <span class="errors">
+  <% if @event.errors and @event.errors.messages[:organizer_name] %>
+    <%= @event.errors.messages[:organizer_name].join(', ') %>
+  <% end %>
+  </span>
+  <br>
+
+  <input class="organizer_email" type="text" name="events[organizer_email" placeholder="Email Address" value=<%= @event[:organizer_email] %>>
+  <span class="errors">
+  <% if @event.errors and @event.errors.messages[:organizer_email] %>
+    <%= @event.errors.messages[:organizer_email].join(', ') %>
+  <% end %>
+  </span>
+  <br>
+
+  <input class="date" type="text" name="events[date]" placeholder="Date" value=<%= @event[:date] %>>
+  <span class="errors">
+  <% if @event.errors and @event.errors.messages[:date] %>
+    <%= @event.errors.messages[:date].join(', ') %>
+  <% end %>
+  </span> 
+  <br>
+
+  <input type="submit" value="Create">
+</form>
